@@ -11,4 +11,5 @@ export const typeOrmConfig: TypeOrmModuleOptions = {
   synchronize: true,
   logging: true,
   dropSchema: true,
+  subscribers: [__dirname + '/../subscribers/*.subscriber{.ts,.js}'],
 };

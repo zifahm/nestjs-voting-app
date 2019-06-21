@@ -26,6 +26,7 @@
     "@nestjs/platform-express": "^6.0.0",
     "@nestjs/typeorm": "^6.1.2",
     "apollo-server-express": "^2.6.3",
+    "bcryptjs": "^2.4.3",
     "graphql": "^14.3.1",
     "graphql-tools": "^4.0.4",
     "pg": "^7.11.0",
@@ -37,6 +38,7 @@
   },
   "devDependencies": {
     "@nestjs/testing": "^6.0.0",
+    "@types/bcryptjs": "^2.4.2",
     "@types/express": "^4.16.0",
     "@types/jest": "^23.3.13",
     "@types/node": "^10.12.18",
