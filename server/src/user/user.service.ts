@@ -1,5 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { confirmEmailLink } from '../utils/confirmEmailLink';
+import { sendEmail } from '../utils/sendEmail';
 import { SignupInput } from './input/user.singupInput';
 import { ErrorResponse } from './shared/errorResponse';
 import { UserRepository } from './user.repository';
@@ -26,7 +28,8 @@ export class UserService {
       ];
     }
 
-    await this.userRepo.save({ ...signupInput });
+    const user = await this.userRepo.save({ ...signupInput });
+    await sendEmail(signupInput.email, await confirmEmailLink(user.id));
     return null;
   }
 }
