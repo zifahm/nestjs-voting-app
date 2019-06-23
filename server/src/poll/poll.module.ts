@@ -8,6 +8,5 @@ import { PollOptionRepository, PollRepository } from './poll.repository';
     TypeOrmModule.forFeature([PollRepository, PollOptionRepository]),
     UserModule,
   ],
-  exports: [TypeOrmModule.forFeature([PollRepository])],
 })
 export class PollModule {}
