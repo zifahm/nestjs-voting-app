@@ -5,6 +5,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { typeOrmConfig } from './config/typeOrmConfig';
 import { UserModule } from './user/user.module';
+import { PollModule } from './poll/poll.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { UserModule } from './user/user.module';
       context: ({ req, res }) => ({ req, res }),
     }),
     UserModule,
+    PollModule,
   ],
   controllers: [AppController],
   providers: [AppService],
