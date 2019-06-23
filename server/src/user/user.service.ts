@@ -4,6 +4,7 @@ import * as bcrypt from 'bcryptjs';
 import { Request, Response } from 'express';
 import { CONFIRM_EMAIL_PREFIX } from '../constants';
 import { redis } from '../redis';
+import { MyContext } from '../types/myContext';
 import { confirmEmailLink } from '../utils/confirmEmailLink';
 import { sendEmail } from '../utils/sendEmail';
 import { LoginInput } from './input/user.loginInput';
@@ -66,5 +67,14 @@ export class UserService {
     }
     req.session.userId = user.id;
     return null;
+  }
+
+  async logout(ctx: MyContext) {
+    await ctx.req.session.destroy(err => {
+      console.log(err);
+      return false;
+    });
+    await ctx.res.clearCookie('votingapp');
+    return true;
   }
 }

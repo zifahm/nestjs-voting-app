@@ -17,7 +17,7 @@ async function bootstrap() {
       store: new RedisStore({
         client: redis as any,
       }),
-      name: 'votinapp',
+      name: 'votingapp',
       secret: SESSION_SECRET,
       resave: false,
       saveUninitialized: false,
