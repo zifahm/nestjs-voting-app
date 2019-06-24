@@ -1,7 +1,6 @@
 import {
   Column,
   Entity,
-  JoinColumn,
   ManyToOne,
   OneToMany,
   PrimaryGeneratedColumn,
@@ -17,8 +16,10 @@ export class Poll {
   @Column('text')
   name: string;
 
+  @Column()
+  userId: string;
+
   @ManyToOne(() => User, user => user.poll)
-  @JoinColumn()
   user: Promise<User>; // generated a userId
 
   @OneToMany(() => PollOption, pollOption => pollOption.poll)
