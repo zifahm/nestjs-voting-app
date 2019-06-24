@@ -5,8 +5,6 @@ import { Request, Response } from 'express';
 import { CONFIRM_EMAIL_PREFIX } from '../constants';
 import { redis } from '../redis';
 import { MyContext } from '../types/myContext';
-import { confirmEmailLink } from '../utils/confirmEmailLink';
-import { sendEmail } from '../utils/sendEmail';
 import { LoginInput } from './input/user.loginInput';
 import { SignupInput } from './input/user.singupInput';
 import { errorMessage } from './shared/errorMessage';
@@ -31,7 +29,8 @@ export class UserService {
     }
 
     const user = await this.userRepo.save({ ...signupInput });
-    await sendEmail(signupInput.email, await confirmEmailLink(user.id));
+    // todo remove the comment below
+    // await sendEmail(signupInput.email, await confirmEmailLink(user.id));
     return null;
   }
 

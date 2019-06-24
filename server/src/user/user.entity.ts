@@ -14,8 +14,8 @@ export class User {
 
   @Column()
   password: string;
-
-  @Column({ default: false })
+  // todo default should be false
+  @Column({ default: true })
   confirmed: boolean;
 
   @OneToMany(() => Poll, poll => poll.user)
