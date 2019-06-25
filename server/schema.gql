@@ -16,6 +16,7 @@ input LoginInput {
 
 type Mutation {
   createPoll(name: String!, options: [String!]!): Boolean!
+  vote(pollOptionId: Float!): Boolean!
   signup(signupInput: SignupInput!): [ErrorResponse!]
   login(loginInput: LoginInput!): [ErrorResponse!]
   logout: Boolean!
