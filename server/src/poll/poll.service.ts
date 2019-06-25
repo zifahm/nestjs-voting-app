@@ -3,6 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { POLL_OPTION_ID_PREFIX } from '../constants';
 import { redis } from '../redis';
 import { MyContext } from '../types/myContext';
+import { Poll } from './poll.entity';
 import { PollOptionRepository, PollRepository } from './poll.repository';
 
 @Injectable()
@@ -60,5 +61,12 @@ export class PollService {
 
     await redis.sadd(`${POLL_OPTION_ID_PREFIX}${pollOption.pollId}`, ip);
     return true;
+  }
+
+  async poll(id: number): Promise<Poll> {
+    return await this.pollRepo.findOne({
+      where: { id },
+      relations: ['pollOption'],
+    });
   }
 }

@@ -22,7 +22,22 @@ type Mutation {
   logout: Boolean!
 }
 
+type Poll {
+  id: Float!
+  name: String!
+  userId: String!
+  pollOption: [PollOption!]!
+}
+
+type PollOption {
+  id: Float!
+  text: String!
+  votes: Float!
+  pollId: Float!
+}
+
 type Query {
+  poll(id: Float!): Poll!
   hello: String!
 }
 
