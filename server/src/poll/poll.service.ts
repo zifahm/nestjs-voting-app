@@ -79,4 +79,17 @@ export class PollService {
       .skip(skip)
       .getMany();
   }
+
+  async deletePoll(ctx: MyContext, id: number): Promise<Boolean> {
+    try {
+      await this.pollRepo.delete({ id });
+      const ip =
+        ctx.req.header('x-forwarded-for') || ctx.req.connection.remoteAddress;
+
+      await redis.srem(`${POLL_OPTION_ID_PREFIX}${id}`, ip);
+    } catch (err) {
+      return false;
+    }
+    return true;
+  }
 }

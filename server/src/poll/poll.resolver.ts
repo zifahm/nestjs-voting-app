@@ -36,4 +36,12 @@ export class PollResolver {
   async allPolls(@Args() { take, skip }: AllPollsArgs): Promise<Poll[]> {
     return this.pollService.allPolls(take, skip);
   }
+
+  @Mutation(() => Boolean)
+  async deletePoll(
+    @Context() ctx: MyContext,
+    @Args('id') id: number,
+  ): Promise<Boolean> {
+    return this.pollService.deletePoll(ctx, id);
+  }
 }
