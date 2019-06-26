@@ -69,4 +69,14 @@ export class PollService {
       relations: ['pollOption'],
     });
   }
+
+  async allPolls(take: number, skip: number): Promise<Poll[]> {
+    return this.pollRepo
+      .createQueryBuilder('poll')
+      .innerJoinAndSelect('poll.pollOption', 'pollOption')
+      .orderBy('poll.name', 'ASC')
+      .take(take)
+      .skip(skip)
+      .getMany();
+  }
 }

@@ -38,6 +38,7 @@ type PollOption {
 
 type Query {
   poll(id: Float!): Poll!
+  allPolls(take: Float!, skip: Float!): [Poll!]!
   hello: String!
 }
 

@@ -1,6 +1,7 @@
 import { UseGuards } from '@nestjs/common';
 import { Args, Context, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { MyContext } from '../types/myContext';
+import { AllPollsArgs } from './args/allPollsArgs';
 import { CreatePollArgs } from './args/createPollArgs.args';
 import { AuthGuard } from './auth.guard';
 import { GetUserId } from './getUserId.decorator';
@@ -29,5 +30,10 @@ export class PollResolver {
   @Query(() => Poll)
   async poll(@Args('id') id: number): Promise<Poll> {
     return this.pollService.poll(id);
+  }
+
+  @Query(() => [Poll])
+  async allPolls(@Args() { take, skip }: AllPollsArgs): Promise<Poll[]> {
+    return this.pollService.allPolls(take, skip);
   }
 }
