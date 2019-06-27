@@ -28,6 +28,7 @@
     "apollo-server-express": "^2.6.3",
     "bcryptjs": "^2.4.3",
     "connect-redis": "^3.4.1",
+    "dataloader": "^1.4.0",
     "dotenv": "^8.0.0",
     "express-session": "^1.16.2",
     "graphql": "^14.3.1",
