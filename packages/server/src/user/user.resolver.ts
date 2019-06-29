@@ -1,7 +1,7 @@
 import { UsePipes } from '@nestjs/common';
 import { Args, Context, Mutation, Query, Resolver } from '@nestjs/graphql';
+import { signupInputSchema } from '@votingapp/common';
 import { MyContext } from 'src/types/myContext';
-import * as yup from 'yup';
 import { YupValidationPipe } from '../pipes/yupValidationPipe';
 import { LoginInput } from './input/user.loginInput';
 import { SignupInput } from './input/user.singupInput';
@@ -9,22 +9,6 @@ import { ErrorResponse } from './shared/errorResponse';
 import { User } from './user.entity';
 import { UserService } from './user.service';
 
-const schema = yup.object().shape({
-  userName: yup
-    .string()
-    .min(3)
-    .max(30)
-    .required(),
-  email: yup
-    .string()
-    .email()
-    .required(),
-  password: yup
-    .string()
-    .min(3, 'pass must be atleast 3 charachters long')
-    .max(150)
-    .required(),
-});
 @Resolver(User)
 export class UserResolver {
   constructor(private readonly userService: UserService) {}
@@ -35,7 +19,7 @@ export class UserResolver {
   }
 
   @Mutation(() => [ErrorResponse], { nullable: true })
-  @UsePipes(new YupValidationPipe(schema))
+  @UsePipes(new YupValidationPipe(signupInputSchema))
   async signup(
     @Args('signupInput') signupInput: SignupInput,
   ): Promise<ErrorResponse[] | null> {
