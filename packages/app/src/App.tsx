@@ -1,7 +1,8 @@
 import ApolloClient from "apollo-boost";
 import React from "react";
 import { ApolloProvider } from "react-apollo-hooks";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
+import AppContainer from "./navigation/AppContainer";
 
 const client = new ApolloClient({
   uri: "http://localhost:3000/graphql"
@@ -10,9 +11,7 @@ const client = new ApolloClient({
 export default function App() {
   return (
     <ApolloProvider client={client}>
-      <View style={styles.container}>
-        <Text>Open up App.tsx to start working on your app!</Text>
-      </View>
+      <AppContainer />
     </ApolloProvider>
   );
 }
