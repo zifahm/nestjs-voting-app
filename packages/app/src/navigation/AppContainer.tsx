@@ -1,8 +1,8 @@
 import { createBrowserApp } from "@react-navigation/web";
 import { Platform } from "react-native";
 import { createAppContainer, createSwitchNavigator } from "react-navigation";
-import LoginScreen from "../screens/LoginScreen";
-import SignupScreen from "../screens/SignupScreen";
+import AppStack from "./AppStack";
+import UnAuthStack from "./UnAuthStack";
 
 const AppContainer = Platform.select({
   web: (config: any) => createBrowserApp(config, { history: "hash" }),
@@ -11,7 +11,7 @@ const AppContainer = Platform.select({
 
 export default AppContainer(
   createSwitchNavigator({
-    UnAuth: LoginScreen,
-    App: SignupScreen
+    UnAuth: UnAuthStack,
+    App: AppStack
   })
 );
