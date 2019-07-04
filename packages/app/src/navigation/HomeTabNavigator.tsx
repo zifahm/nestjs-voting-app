@@ -2,7 +2,8 @@ import {
   createBottomTabNavigator,
   NavigationContainer,
   NavigationScreenConfig,
-  NavigationStackScreenOptions
+  NavigationStackScreenOptions,
+  TabViewConfig
 } from "react-navigation";
 import PollScreen from "../screens/PollScreen";
 import ProfileScreen from "../screens/ProfileScreen";
@@ -11,9 +12,9 @@ import { ROUTES, Stack } from "../types/stack";
 const NavigationOptions: NavigationScreenConfig<
   NavigationStackScreenOptions
 > = ({ navigation }) => {
-  let headerTitle: string;
-
   const { routeName } = navigation.state.routes[navigation.state.index];
+
+  let headerTitle: string = routeName;
 
   switch (routeName) {
     case ROUTES.HomePoll:
@@ -28,6 +29,12 @@ const NavigationOptions: NavigationScreenConfig<
   };
 };
 
+const TabBarOptions: TabViewConfig["tabBarOptions"] = {
+  labelStyle: {
+    fontSize: 16,
+    padding: 10
+  }
+};
 const HomeTabNavigator = (stack: Stack): NavigationContainer => {
   switch (stack) {
     case ROUTES.RootUnAuth:
@@ -36,7 +43,8 @@ const HomeTabNavigator = (stack: Stack): NavigationContainer => {
           [ROUTES.HomePoll]: PollScreen
         },
         {
-          navigationOptions: NavigationOptions
+          navigationOptions: NavigationOptions,
+          tabBarOptions: TabBarOptions
         }
       );
     case ROUTES.RootApp:
@@ -46,7 +54,8 @@ const HomeTabNavigator = (stack: Stack): NavigationContainer => {
           [ROUTES.HomeProfile]: ProfileScreen
         },
         {
-          navigationOptions: NavigationOptions
+          navigationOptions: NavigationOptions,
+          tabBarOptions: TabBarOptions
         }
       );
   }
