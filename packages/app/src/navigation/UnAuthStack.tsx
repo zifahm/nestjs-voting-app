@@ -5,7 +5,12 @@ import { ROUTES } from "../types/stack";
 import MainStackNavigator from "./MainStackNavigator";
 
 const UnAuthStack = createDrawerNavigator({
-  [ROUTES.UnAuthMain]: MainStackNavigator(ROUTES.RootUnAuth),
+  [ROUTES.UnAuthMain]: {
+    screen: MainStackNavigator(ROUTES.RootUnAuth),
+    navigationOptions: () => ({
+      title: "Home"
+    })
+  },
   [ROUTES.UnAuthLogin]: LoginScreen,
   [ROUTES.UnAuthSignup]: SignupScreen
 });

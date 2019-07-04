@@ -5,7 +5,7 @@ export enum ROUTES {
   RootApp = "RootApp",
 
   UnAuthMain = "UnAuthMain",
-  UnAuthLogin = "UnAutLogin",
+  UnAuthLogin = "UnAuthLogin",
   UnAuthSignup = "UnAuthSignup",
 
   AppMain = "AppMain",

@@ -1,15 +1,20 @@
 import React from "react";
-import { Button, StyleSheet, Text, View } from "react-native";
-import { NavigationScreenComponent } from "react-navigation";
+import { StyleSheet, Text, View } from "react-native";
+import {
+  NavigationScreenComponent,
+  NavigationTabScreenOptions
+} from "react-navigation";
 
 const ProfileScreen: NavigationScreenComponent = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}> Profile Screen</Text>
-      <Button title="Login" onPress={() => navigation.navigate("App")} />
     </View>
   );
 };
+ProfileScreen.navigationOptions = (): NavigationTabScreenOptions => ({
+  title: "Profile"
+});
 
 const styles = StyleSheet.create({
   container: {

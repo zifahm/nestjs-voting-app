@@ -1,6 +1,9 @@
 import React from "react";
 import { Button, StyleSheet, Text, View } from "react-native";
-import { NavigationScreenComponent } from "react-navigation";
+import {
+  NavigationDrawerScreenOptions,
+  NavigationScreenComponent
+} from "react-navigation";
 import { ROUTES } from "../types/stack";
 
 const LoginScreen: NavigationScreenComponent = ({ navigation }) => {
@@ -14,6 +17,10 @@ const LoginScreen: NavigationScreenComponent = ({ navigation }) => {
     </View>
   );
 };
+
+LoginScreen.navigationOptions = (): NavigationDrawerScreenOptions => ({
+  title: "Login"
+});
 
 const styles = StyleSheet.create({
   container: {

@@ -1,6 +1,9 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { NavigationScreenComponent } from "react-navigation";
+import {
+  NavigationDrawerScreenOptions,
+  NavigationScreenComponent
+} from "react-navigation";
 
 const SignupScreen: NavigationScreenComponent = () => {
   return (
@@ -9,6 +12,9 @@ const SignupScreen: NavigationScreenComponent = () => {
     </View>
   );
 };
+SignupScreen.navigationOptions = (): NavigationDrawerScreenOptions => ({
+  title: "Signup"
+});
 
 const styles = StyleSheet.create({
   container: {

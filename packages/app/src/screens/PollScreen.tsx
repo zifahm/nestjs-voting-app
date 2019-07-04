@@ -1,15 +1,21 @@
 import React from "react";
-import { Button, StyleSheet, Text, View } from "react-native";
-import { NavigationScreenComponent } from "react-navigation";
+import { StyleSheet, Text, View } from "react-native";
+import {
+  NavigationScreenComponent,
+  NavigationTabScreenOptions
+} from "react-navigation";
 
 const PollScreen: NavigationScreenComponent = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}> Poll Screen</Text>
-      <Button title="Login" onPress={() => navigation.navigate("App")} />
     </View>
   );
 };
+
+PollScreen.navigationOptions = (): NavigationTabScreenOptions => ({
+  title: "Poll"
+});
 
 const styles = StyleSheet.create({
   container: {
