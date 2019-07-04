@@ -1,8 +1,7 @@
 import ApolloClient from "apollo-boost";
 import React from "react";
 import { ApolloProvider } from "react-apollo-hooks";
-import { StyleSheet } from "react-native";
-import AppContainer from "./navigation/AppContainer";
+import RootContainer from "./navigation/RootContainer";
 
 const client = new ApolloClient({
   uri: "http://localhost:3000/graphql"
@@ -11,16 +10,7 @@ const client = new ApolloClient({
 export default function App() {
   return (
     <ApolloProvider client={client}>
-      <AppContainer />
+      <RootContainer />
     </ApolloProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center"
-  }
-});

@@ -10,6 +10,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@react-navigation/web": "1.0.0-alpha.9",
     "apollo-boost": "^0.4.3",
     "expo": "^33.0.0",
     "graphql": "^14.4.1",
@@ -18,13 +19,22 @@
     "react-dom": "^16.8.6",
     "react-native": "https://github.com/expo/react-native/archive/sdk-33.0.0.tar.gz",
     "react-native-web": "^0.11.4",
-    "react-navigation": "3.11.0",
-    "@react-navigation/web": "1.0.0-alpha.9"
+    "react-navigation": "3.11.0"
   },
   "devDependencies": {
     "@types/react": "^16.8.19",
     "@types/react-native": "^0.57.60",
+    "@typescript-eslint/eslint-plugin": "^1.11.0",
+    "@typescript-eslint/parser": "^1.11.0",
+    "babel-eslint": "^10.0.2",
     "babel-preset-expo": "^5.1.1",
+    "eslint": "^6.0.1",
+    "eslint-config-react-app": "^4.0.1",
+    "eslint-plugin-flowtype": "^3.11.1",
+    "eslint-plugin-import": "^2.18.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.2",
+    "eslint-plugin-react-hooks": "^1.6.1",
     "typescript": "^3.4.5"
   },
   "private": true,

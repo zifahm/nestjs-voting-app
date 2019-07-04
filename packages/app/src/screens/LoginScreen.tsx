@@ -1,12 +1,16 @@
 import React from "react";
 import { Button, StyleSheet, Text, View } from "react-native";
 import { NavigationScreenComponent } from "react-navigation";
+import { ROUTES } from "../types/stack";
 
 const LoginScreen: NavigationScreenComponent = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}> Login Screen</Text>
-      <Button title="Login" onPress={() => navigation.navigate("App")} />
+      <Button
+        title="Login"
+        onPress={() => navigation.navigate(ROUTES.RootApp)}
+      />
     </View>
   );
 };

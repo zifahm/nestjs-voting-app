@@ -1,7 +1,8 @@
 import { createDrawerNavigator } from "react-navigation";
-import HomeStackNavigator from "./HomeStackNavigator";
+import { ROUTES } from "../types/stack";
+import MainStackNavigator from "./MainStackNavigator";
 
 const AppStack = createDrawerNavigator({
-  Home: HomeStackNavigator("App")
+  [ROUTES.AppMain]: MainStackNavigator(ROUTES.RootApp)
 });
 export default AppStack;

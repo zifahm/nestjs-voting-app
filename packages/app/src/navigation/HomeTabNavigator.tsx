@@ -4,21 +4,19 @@ import {
 } from "react-navigation";
 import PollScreen from "../screens/PollScreen";
 import ProfileScreen from "../screens/ProfileScreen";
-import { Stack } from "../types/stack";
+import { ROUTES, Stack } from "../types/stack";
 
 const HomeTabNavigator = (stack: Stack): NavigationContainer => {
   switch (stack) {
-    case "UnAuth":
+    case ROUTES.RootUnAuth:
       return createBottomTabNavigator({
-        Poll: PollScreen
+        [ROUTES.HomePoll]: PollScreen
       });
-      break;
-    case "App":
+    case ROUTES.RootApp:
       return createBottomTabNavigator({
-        Poll: PollScreen,
-        Profile: ProfileScreen
+        [ROUTES.HomePoll]: PollScreen,
+        [ROUTES.HomeProfile]: ProfileScreen
       });
-      break;
   }
 };
 
